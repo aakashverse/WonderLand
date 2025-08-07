@@ -1,6 +1,6 @@
-/* body{
-    margin: 10px;
-} */
+body{
+   padding-bottom: 10rem;
+}
 
 .fa-compass{
     color: #fe424d;
@@ -25,11 +25,12 @@
 } */
 
 .f-info{
-    text-align: cente;
-    height: 8rem;
+    text-align: center;
+    height: 6rem;
     background-color: #c2bebe;
     display: flex;
-    align-items: space-evenly;
+    justify-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
 }
 
