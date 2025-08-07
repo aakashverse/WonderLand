@@ -1,0 +1,104 @@
+/* body{
+    margin: 10px;
+} */
+
+.fa-compass{
+    color: #fe424d;
+}
+
+.f-info-social{
+    gap: 10px;
+}
+
+.options:hover{
+    color: rgb(22, 114, 235);
+}
+
+.navbar{
+    height: 5rem;
+    background-color:#e7e1e1;
+    font-size: larger;
+}
+
+/* .nav-link{
+   font-size: xx-large; 
+} */
+
+.f-info{
+    text-align: cente;
+    height: 8rem;
+    background-color: #c2bebe;
+    display: flex;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+}
+
+.f-info-links a,.f-info-social a{
+    text-decoration: none;
+    color: black;
+    margin-left: 3px;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-social,.f-info-links,.f-details{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight:400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn,.edit-btn,.edit_show-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.show-img{
+    height: 40vh;
+    width: 15vw;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btns{
+    display: flex;
+}
+
+#map{
+    height: 400px;
+    width: 80vh;
+}
