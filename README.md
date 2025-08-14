@@ -77,6 +77,6 @@ uploading soon
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/wonderland.git
+git clone https://github.com/aakashverse/wonderland.git
 cd wonderland
 node app.js
