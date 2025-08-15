@@ -24,6 +24,38 @@ body{
    font-size: xx-large; 
 } */
 
+/* Flash message container */
+.flash-container {
+    pointer-events: none;
+}
+
+/* Individual alerts */
+.flash-container .alert {
+    pointer-events: auto;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Animation for appearing */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Animation for dismissing */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Apply animations */
+.alert.fade.show {
+    animation: slideDown 0.3s ease-out;
+}
+
+.alert.fade {
+    animation: fadeOut 0.3s ease-out;
+}
+
 .f-info{
     text-align: center;
     height: 6rem;

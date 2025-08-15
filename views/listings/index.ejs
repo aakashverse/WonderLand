@@ -1,95 +1,172 @@
 <% layout('layouts/boilerplate') %>
 
-<!-- <% layout("/layouts/boilerplate") %> -->
-
-<style>
-    #filters{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .filter{
-        text-align: center;
-        margin-right: 2rem;
-        margin-top: 2rem;
-        opacity: 0.8;
-    }
-
-    .filter:hover{
-        opacity: 1;
-        cursor: pointer;
-    }
-
-    .tax-info{
-        display: none;
-    }
-
-    .tax-toggle{
-        border: 1px solid black;
-        border-radius: 1rem;
-        height: 3.25rem;
-        padding: 1rem;
-        margin-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
-
-</style>
-
-    <div id="filters">
-        <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-        </div>
-         <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-city"></i></i></div>
-            <p>Iconic Cities</p>
-        </div>
-         <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></i></div>
-            <p>Mountain Cities</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></i></div>
-            <p>Amazing Pools</p>
-        </div>
-         <div class="filter">
-            <div><i class="fa-solid fa-chess"></i></div>
-            <p>Castles</p>
-        </div>
-        <div class="filter">
-            <div><i class="fa-solid fa-campground"></i></i></div>
-            <p>Camping</p>
-        </div>
-         <div class="filter">
-            <div><i class="fa-solid fa-cow"></i></div>
-            <p>Farms</p>
-        </div>
-         <div class="filter">
-            <div><i class="fa-solid fa-snowflake"></i></div>
-            <p>Arctic</p>
-        </div>
+    <style>
+        /* contnr styles */
+        .filters-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
         
-        <div class="filter">
-            <div><i class="fa-solid fa-ship"></i></div>
-            <p>Boats</p>
-        </div>
+        #filters {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            flex: 1;
+        }
+        
+        #filters::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .filter {
+            min-width: 80px;
+            text-align: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .filter div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+        }
+        
+        .filter i {
+            font-size: 20px;
+            color: #333;
+        }
+        
+        .filter p {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+        
+        .tax-toggle {
+            border: 1px solid black;
+            border-radius: 9px;
+            padding: 10px;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+        
+        /* slider  btn */
+        .slider-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .filters-container {
+                padding: 0 30px;
+            }
+            
+            #filters {
+                width: calc(100% - 80px);
+                overflow: hidden;
+            }
+            
+            .slider-btn {
+                display: flex;
+            }
+            
+            .tax-toggle {
+                display: none;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-left: 0;
+            }
+        }
+    </style>
 
-        <div class="tax-toggle">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+    <div class="container py-3">
+        <div class="filters-container">
+            <button class="slider-btn" id="slideLeft">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div id="filters">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <p>Rooms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    <p>Iconic Cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Mountain Cities</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    <p>Amazing Pools</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-chess"></i></div>
+                    <p>Castles</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-campground"></i></div>
+                    <p>Camping</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-cow"></i></div>
+                    <p>Farms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-snowflake"></i></div>
+                    <p>Arctic</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-ship"></i></div>
+                    <p>Boats</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-gamepad"></i></div>
+                    <p>Game Arena</p>
+                </div>
+            </div>
+            
+            <button class="slider-btn" id="slideRight">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+                </div>
             </div>
         </div>
-
-
     </div>
-    
+
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
     <% for (let listing of allListings) {
      if (listing && listing._id) { %>
@@ -109,7 +186,11 @@
     </div>
 
     <script>
+        const filters = document.getElementById('filters');
+        const slideLeft = document.getElementById('slideLeft');
+        const slideRight = document.getElementById('slideRight');
         let TaxSwitch = document.getElementById("switchCheckDefault");
+
         TaxSwitch.addEventListener("click",()=>{
             let taxInfo = document.getElementsByClassName("tax-info");
             for(info of taxInfo){
@@ -120,6 +201,20 @@
                 }
             }
         })
+
+        slideRight.addEventListener('click', () => {
+            filters.scrollBy({
+                left: 200,
+                behavior: 'smooth'
+            });
+        });
         
+        slideLeft.addEventListener('click', () => {
+            filters.scrollBy({
+                left: -200,
+                behavior: 'smooth'
+            });
+        });
+
     </script>
 

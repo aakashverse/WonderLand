@@ -1,4 +1,4 @@
-<% if(success && success.length){ %>
+<!-- <% if(success && success.length){ %>
 <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
     <%= success %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -10,13 +10,51 @@
     <%= error %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+<% } %> -->
+
+<% if(success && success.length || error && error.length) { %>
+<div class="flash-messages-wrapper" style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; pointer-events: none;">
+    <div class="container">
+        <% if(success && success.length) { %>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" style="pointer-events: auto;">
+            <%= success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+        
+        <% if(error && error.length) { %>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert" style="pointer-events: auto;">
+            <%= error %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+    </div>
+</div>
 <% } %>
 
 <script>
+// Ensure Bootstrap alerts initialize properly
+document.addEventListener('DOMContentLoaded', () => {
+  // Auto-dismiss after 5 seconds
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(alert => {
+      const bsAlert = new bootstrap.Alert(alert);
+      bsAlert.close();
+    });
+  }, 5000);
+  
+  // Adjust for navbar if needed
+  if (document.querySelector('.navbar.fixed-top')) {
+    document.body.classList.add('has-navbar');
+  }
+});
+</script>
+
+<!-- <script>
     document.querySelectorAll('.btn-close').forEach(btn => {
     btn.addEventListener('click', () => {
     btn.parentElement.style.display = 'none';
     });
 });
 
-</script>
+</script> -->

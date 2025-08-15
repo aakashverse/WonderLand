@@ -16,7 +16,7 @@
   .search-inp {
     border-radius: 25px;
     padding: 0.5rem 1rem;
-    width: 180px;
+    width: 200px;
   }
 
   @media (max-width: 768px) {
@@ -42,7 +42,7 @@
     }
     .search-inp {
       margin-left: 10px;
-      width: 180px;
+      width: 190px;
     }
     .navbar-toggler {
       margin-left: auto;
@@ -63,6 +63,7 @@
       transform: translateX(-50%);
     }
     .nav-links {
+      white-space: nowrap; /* Prevent text wrapping */
       margin-left: auto;
     }
   }
@@ -79,7 +80,7 @@
       
       <div class="d-flex align-items-center">
         <div class="search-container me-2">
-          <input class="form-control search-inp" type="search" placeholder="Search...">
+          <input class="form-control search-inp" type="search" placeholder="Search destinations..">
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
           <span class="navbar-toggler-icon"></span>
@@ -106,7 +107,7 @@
 
     <!-- Collapsible Content (right-aligned) -->
     <div class="collapse navbar-collapse navbar-content" id="navbarContent">
-      <div class="nav-links d-flex flex-column flex-md-row gap-3 ms-md-auto">
+      <div class="nav-links d-flex flex-column flex-md-row gap-5 ms-md-auto">
         <a class="nav-link" href="/listings">Explore</a>
         <a class="nav-link" href="/listings/new">Add Listing</a>
         
@@ -122,91 +123,17 @@
   </div>
 </nav>
 
-<!-- 
-<style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem;
-  }
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
-  .search-btn i {
-    margin-right: 0.5rem;
-  }
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.5rem 1rem;
-    min-width: 200px;
-  }
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div
-      class="collapse navbar-collapse justify-content-between"
-      id="navbarSupportedContent"
-    >
-    
-    <a class="navbar-brand d-flex align-items-center" href="/listings">
-    <i class="fa-solid fa-compass me-2"></i>
-    <span class="fs-4 fw-bold">Wonderland</span>
-     </a>
-
-
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-
-      
-      <form
-        class="d-flex mx-auto my-2 my-md-0"
-        role="search"
-        style="min-width: 250px; max-width: 400px;"
-      >
-        <input
-          class="form-control me-2 search-inp"
-          type="search"
-          placeholder="Search destinations"
-          aria-label="Search"
-        />
-        <button class="btn search-btn" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>Search
-        </button>
-      </form>
-
-     
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings/new">Add Listing</a>
-        <% if (!curUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% } %>
-        <% if (curUser) { %>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
-      </div>
-    </div>
-  </div>
-</nav> -->
-
-
-
+<script>
+  // Add this after your navbar code
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar.fixed-top');
+    if (navbar) {
+        document.body.classList.add('has-fixed-navbar');
+        const navbarHeight = navbar.offsetHeight;
+        document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+    }
+});
+</script>
 
 
 
