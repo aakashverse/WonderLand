@@ -1,6 +1,6 @@
 # 🌍 Wonderland — Discover Places, Seamlessly
 
-**Wonderland** is a responsive full-stack web application that lets users explore, search, and list resorts,destinations or properties. Built with **Tailwind CSS** for modern, scalable styling and designed with a focus on user experience, responsiveness, and clean architecture.
+**Wonderland** is a responsive full-stack web application that lets users search rated rentals for your next trip - holiday homes, cabins, unique stays & more. Find homes perfect for any trip: vacations.... Built with **Tailwind CSS** for modern, scalable styling and designed with a focus on user experience, responsiveness, and clean architecture.
 
 > 🔥 Designed to scale — from mobile to desktop.  
 > 🎯 Built with job-ready, production-standard frontend practices.
@@ -9,7 +9,18 @@
 
 ## 🖼 Preview
 
-uploading soon
+### Home Page
+![Home Page](public/assets/Home%20Page.png)
+
+### Listing Info
+![Listing Info](public/assets/ListingInfo1.png)
+(public/assets/ListingInfo2.png)
+
+### New Listing 
+![New Listing](public/assets/New%20Listing.png)
+
+### Rating & Review Section
+![Rating & Reviews](public/assets/Review%20&%20Rating%20section.png)
 
 ---
 
@@ -62,15 +73,6 @@ uploading soon
 ├── app.js            # Entry point
 └── README.md
 
-
-## 🧱 Architecture Highlights
-
-- 🔧 **Componentized Navbar**: Brand, search, and user links split into responsive, manageable units.
-- 🌐 **SEO-Friendly**: Server-rendered HTML with semantic tags.
-- 🧩 **Reusable styles**: Consistent use of Tailwind utility classes for padding, spacing, colors, and layout.
-- 🧠 **User-centric Design**: Conditional navigation logic based on session state (`<% if (curUser) { %>`).
-
----
 
 ## 🛠 Getting Started
 
