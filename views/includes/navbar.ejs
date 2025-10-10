@@ -19,6 +19,8 @@
     width: 200px;
   }
 
+
+
   @media (max-width: 768px) {
     .mobile-header {
       display: flex;
@@ -31,7 +33,7 @@
       align-items: flex-end;
       padding-top: 0.5rem;
     }
-    .nav-links {
+    .nav-link {
       background: rgb(217, 210, 210);
       padding: 1rem;
       border-radius: 8px;
@@ -53,6 +55,29 @@
     }
     .search-container {
       order: 3;
+    }
+    .user-section {
+      display: flex;
+      align-items: center;
+      gap: 10px; 
+      padding: 8px 12px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: fit-content; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-icon {
+      font-size: 18px;
+      color: #4a4a4a;
+    }
+
+    .username {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      display: none;
     }
   }
 
@@ -79,14 +104,14 @@
 @media (max-width: 767.98px) {
   .navbar-brand {
     position: relative;
-    z-index: 1020; /* Ensures it stays above other elements */
+    z-index: 1020; 
   }
 }
 </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid position-relative">
-    <!-- Mobile Header Row -->
+
     <div class="mobile-header d-md-none">
       <a class="navbar-brand" href="/listings">
         <i class="fa-solid fa-compass me-2"></i>
@@ -103,7 +128,7 @@
       </div>
     </div>
 
-    <!-- Desktop Header -->
+    
     <div class="d-none d-md-flex w-100">
       <a class="navbar-brand" href="/listings">
         <i class="fa-solid fa-compass me-2"></i>
@@ -120,7 +145,7 @@
       </div>
     </div>
 
-    <!-- Collapsible Content (right-aligned) -->
+   
     <div class="collapse navbar-collapse navbar-content" id="navbarContent">
       <div class="nav-links d-flex flex-column flex-md-row gap-5 ms-md-auto">
         <a class="nav-link" href="/listings">Explore</a>
@@ -132,6 +157,10 @@
         <% } %>
         <% if (curUser) { %>
           <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <div class="user-section">
+            <i class="fa-solid fa-user user-icon"></i>
+            <a class="username" href="/profile">My Profile</a>
+          </div>
         <% } %>
       </div>
     </div>
@@ -139,7 +168,7 @@
 </nav>
 
 <script>
-  // Add this after your navbar code
+  
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar.fixed-top');
     if (navbar) {
@@ -150,61 +179,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-
-<!-- <style>
-  .search-btn{
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-   .search-btn:hover{
-    background-color: #fe424d;
-    color: #fff;
-  }
-  .search-btn i{
-    display: inline;
-    margin-right : 0.5rem;
-  }
-
-  .search-inp{
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-  }
-</style>
-
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-solid fa-compass"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse">
-      <div class="navbar-nav me-auto mb-2 mb-lg-0">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-    </div>
-
-    <div class="navbar-nav ms-auto">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search"/>
-        <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-      </form>
-    </div>
-    
-    <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Add Listing</a>
-        <% if(!curUser){ %>
-          <a class="nav-link" href="/signup"><b>Sign up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-          <% } %>
-          <% if(curUser){ %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
-    </div>
-  </div>
-</nav> -->

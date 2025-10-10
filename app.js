@@ -80,14 +80,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Make sure you have this middleware setup
+//  middleware setup
 // app.use((req, res, next) => {
 //     res.locals.success = req.flash("success");
 //     res.locals.error = req.flash('error');
 //     next();
 // });
 
-  app.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.redirect('/listings');
 });
 

@@ -43,3 +43,7 @@ module.exports.logout = (req,res,next)=>{
         res.redirect("/listings");
     });
 }
+
+module.exports.MyProfile = (req,res)=>{
+    res.render("../views/listings/profile.ejs")
+}

@@ -22,4 +22,8 @@ router.route("/login")
 
 router.get("/logout",userController.logout);
 
+router.route("/profile")
+.get(userController.MyProfile)
+
+
 module.exports = router;
