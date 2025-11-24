@@ -15,11 +15,11 @@ module.exports.signup = async(req,res)=>{
             return next(err);
         }
         req.flash("success","Welcome to Wonderland!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     })
    } catch(e){
     req.flash("error",e.message);
-    res.redirect("/signup");
+    return res.redirect("/signup");
    }
 }
 
@@ -31,7 +31,7 @@ module.exports.login = async (req,res)=>{
     console.log("BODY:", req.body.reviews);
     req.flash("success","Welcome back to Wonderland!");
     let redirectUrl = res.locals.redirectUrl || "/listings";
-    res.redirect(redirectUrl);
+    return res.redirect(redirectUrl);
 }
 
 module.exports.logout = (req,res,next)=>{

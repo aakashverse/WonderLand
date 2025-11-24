@@ -21,6 +21,10 @@ module.exports.createReview = async(req, res) => {
     console.log(req.body.review);
     const {rating, comment} = req.body.review; // Access nested review object
     const listing = await Listing.findById(req.params.id);
+    if (!listing) {
+        req.flash("error", "Listing not found!");
+        return res.redirect("/listings");
+    }
     
     const newReview = new Review({
         comment,
@@ -39,7 +43,8 @@ module.exports.createReview = async(req, res) => {
 module.exports.destroyReview = async(req,res)=>{
     let {id,reviewId} = req.params;
     await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
-    await Review.findById(reviewId);
+    // await Review.findById(reviewId);
+    await Review.findByIdAndDelete(reviewId);  
     req.flash("success","Review Deleted!");
-    res.redirect(`/listings/${id}`);
+    return res.redirect(`/listings/${id}`);
 }
