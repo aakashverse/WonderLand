@@ -18,11 +18,11 @@ module.exports.showListing = async (req,res)=>{
     const listing = await Listing.findById(id).populate({path: "reviews", populate: { path: "author"}}).populate("owner");
     if(!listing){
         req.flash("error","Listing you requested for does not exist!");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }
     
     // console.log(listing.owner);
-    res.render("listings/show.ejs",{listing});
+    return res.render("listings/show.ejs",{listing});
 }
 
 
@@ -49,9 +49,10 @@ module.exports.createListing = async (req, res) => {
 module.exports.EditListing = async (req,res)=>{
     let {id} = req.params;
     const listing = await Listing.findById(id);
+
     if(!listing){
         req.flash("error","Listing you requested for does not exist!");
-        res.redirect("listings");
+        return res.redirect("listings");
     }
 
     let originalImageUrl = listing.image.url;
